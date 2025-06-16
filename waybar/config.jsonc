@@ -1,0 +1,21 @@
+{
+    "layer": "top",
+	"exclusive": true,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-right": ["battery", "clock"],
+    "sway/window": {
+        "max-length": 50
+    },
+    "battery": {
+        "format": "{capacity}% {icon} {time}",
+        "format-icons": ["", "", "", "", ""],
+		"states": {
+			"warning": 30,
+			"critical": 15
+		}
+    },
+    "clock": {
+        "format-alt": "{:%a, %d. %b  %H:%M}"
+    },
+	"reload_style_on_change": true
+}

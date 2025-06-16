@@ -1,0 +1,3 @@
+[submodule "nvim/ripgrep"]
+	path = nvim/ripgrep
+	url = https://github.com/BurntSushi/ripgrep
