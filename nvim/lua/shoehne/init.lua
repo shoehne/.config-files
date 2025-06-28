@@ -1,6 +1,8 @@
 require("shoehne.keymaps")
 require("shoehne.lazy")
 
+vim.g.netrw_banner = 0
+
 vim.wo.number = true
 vim.wo.relativenumber = true
 

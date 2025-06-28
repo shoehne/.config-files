@@ -3,9 +3,8 @@ return {
         "nvim-treesitter/nvim-treesitter",
         branch = "master",
         lazy = false,
-        build = "TSUpdate"
-        config = function()
-            require('nvim-treesitter.configs').setup() {
+        build = ":TSUpdate",
+        opts = {
                 ensure_installed = {
                     "asm",
                     "c",
@@ -32,7 +31,10 @@ return {
                 indent = {
                     enable = true
                 }
-            }
-        end
+        }
+    },
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        opts = {},
     }
 }
