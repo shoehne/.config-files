@@ -1,0 +1,114 @@
+require("transparent").setup({
+  groups = {
+    "Normal", "NormalNC", "Comment", "Constant", "Special", "Identifier",
+    "Statement", "PreProc", "Type", "Underlined", "Todo", "String",
+    "Function", "Conditional", "Repeat", "Operator", "Structure",
+    "LineNr", "NonText", "SignColumn", "CursorLine", "CursorLineNr",
+    "StatusLine", "StatusLineNC", "EndOfBuffer",
+    -- Treesitter captures
+    "@function", "@variable", "@keyword"
+  },
+  extra_groups = {}, -- Add plugin-specific groups if needed
+  exclude_groups = {}, -- Leave empty unless you want to preserve some backgrounds
+})
+require("transparent").setup({
+  extra_groups = {
+    -- Core UI
+    "NormalFloat",
+    "FloatBorder",
+    "Pmenu",
+    "PmenuSel",
+    "StatusLine",
+    "StatusLineNC",
+    "WinSeparator",
+    "EndOfBuffer",
+
+    -- nvim-treesitter
+    "TSNodeKey",
+    "TSNodeUnmatched",
+    "TSNodeMatched",
+
+    -- harpoon
+    "HarpoonWindow",
+    "HarpoonBorder",
+    "HarpoonInactive",
+    "HarpoonActive",
+    "HarpoonNumberActive",
+    "HarpoonNumberInactive",
+
+    -- dooku
+    "DookuNormal",
+    "DookuBorder",
+
+    -- undotree
+    "UndotreeDiffAdd",
+    "UndotreeDiffChange",
+    "UndotreeDiffText",
+    "UndotreeDiffDelete",
+    "UndotreeTreeNode",
+    "UndotreeSavedBig",
+    "UndotreeSavedSmall",
+
+    -- vim-fugitive
+    "GitStatus",
+    "GitDiff",
+    "GitCommit",
+    "GitBranch",
+
+    -- compiler.nvim
+    "CompilerOutput",
+    "CompilerBorder",
+
+    -- overseer.nvim
+    "OverseerNormal",
+    "OverseerBorder",
+    "OverseerTask",
+    "OverseerOutput",
+
+    -- telescope
+    "TelescopeNormal",
+    "TelescopeBorder",
+    "TelescopePromptNormal",
+    "TelescopePromptBorder",
+    "TelescopePromptTitle",
+    "TelescopePreviewTitle",
+    "TelescopeResultsTitle",
+
+    -- mason
+    "MasonNormal",
+    "MasonHeader",
+    "MasonHighlight",
+    "MasonMuted",
+    "MasonError",
+    "MasonWarning",
+
+    -- mini.nvim (various modules)
+    "MiniStatuslineModeNormal",
+    "MiniStatuslineModeInsert",
+    "MiniStatuslineModeVisual",
+    "MiniTablineCurrent",
+    "MiniTablineVisible",
+    "MiniTablineHidden",
+
+    -- trouble.nvim
+    "TroubleNormal",
+    "TroubleText",
+    "TroubleCount",
+    "TroubleIndent",
+
+    -- nvim-dap
+    "DapUIVariable",
+    "DapUIValue",
+    "DapUIType",
+    "DapUIThread",
+    "DapUIStoppedThread",
+    "DapUISource",
+    "DapUILineNumber",
+    "DapUIFloatBorder",
+    "DapUIWatchesEmpty",
+    "DapUIWatchesValue",
+    "DapUIWatchesError",
+  },
+  exclude_groups = {}, -- Add any groups you want to keep opaque
+})
+

@@ -4,7 +4,7 @@ error_symbol = '[✗](bold red) '
 
 [directory]
 use_os_path_sep = false
-truncation_symbole = '../'
+truncation_symbol = '../'
 truncation_length = 2
 style = 'bold purple'
 before_repo_root_style = 'purple'
@@ -28,16 +28,16 @@ disabled = true
 [bun]
 disabled = true
 
-[C]
+[c]
 disabled = true
 
-[CPP]
+[cpp]
 disabled = true
 
-[CMake]
+[cmake]
 disabled = true
 
-[COBOL]
+[cobol]
 disabled = true
 
 [cmd_duration]
