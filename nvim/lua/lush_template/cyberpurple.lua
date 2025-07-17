@@ -96,8 +96,8 @@ local theme = lush(function(injected_functions)
     -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     -- MoreMsg        { }, -- |more-prompt|
     -- NonText        { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    -- Normal         { }, -- Normal text
-    -- NormalFloat    { }, -- Normal text in floating windows.
+    Normal         { fg = hsl(300, 070, 50)}, -- Normal text
+    NormalFloat    { fg = hsl(300, 070, 50) }, -- Normal text in floating windows.
     -- FloatBorder    { }, -- Border of floating windows.
     -- FloatTitle     { }, -- Title of floating windows.
     -- NormalNC       { }, -- normal text in non-current windows
@@ -117,7 +117,7 @@ local theme = lush(function(injected_functions)
     -- SpellCap       { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal     { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     -- SpellRare      { }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
-    -- StatusLine     { }, -- Status line of current window
+    StatusLine     { bg = hsl(0, 0, 0), fg = hsl(300, 100, 25) }, -- Status line of current window
     -- StatusLineNC   { }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     -- TabLine        { }, -- Tab pages line, not active tab page label
     -- TabLineFill    { }, -- Tab pages line, where there are no labels
@@ -140,7 +140,7 @@ local theme = lush(function(injected_functions)
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    -- Comment        { }, -- Any comment
+    Comment        { }, -- Any comment
 
     -- Constant       { }, -- (*) Any constant
     -- String         { }, --   A string constant: "this is a string"
