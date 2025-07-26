@@ -5,6 +5,26 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
+        opts = {
+            servers = {
+                omnisharp = {
+                    cmd = (function()
+                        local pid = vim.fn.getpid()
+                        local omnisharp_binary = vim.fn.getenv('OMNISHARP_LANGUAGE_SERVER')
+                        if omnisharp_binary and omnisharp_binary ~= "" then
+                            return {
+                                omnisharp_binary,
+                                "--languageserver",
+                                "--hostPID",
+                                toString(pid)
+                            }
+                        else
+                            return nil
+                        end
+                    end)(),
+                },
+            },
+        },
     },
     {
         "mason-org/mason-lspconfig.nvim",
@@ -18,6 +38,7 @@ return {
                 ensure_installed = {
                     "clangd",
                     "lua_ls",
+                    "omnisharp",
                 }
             }
         end
