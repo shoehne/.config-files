@@ -10,13 +10,18 @@ return {
                 omnisharp = {
                     cmd = (function()
                         local pid = vim.fn.getpid()
-                        local omnisharp_binary = vim.fn.getenv('OMNISHARP_LANGUAGE_SERVER')
-                        if omnisharp_binary and omnisharp_binary ~= "" then
+                        local omnisharp_binary = ''
+                        if package.config:sub(1, 1) == '\\' then
+                            omnisharp_binary = '../../omnisharp/artifacts/publish/OmniSharp.Stdio.Driver/win7-x64/net6.0/OmniSharp.exe'
+                        else
+                            omnisharp_binary = '../../omnisharp/artifacts/publish/OmniSharp.Stdio.Driver/linux-x64/net6.0/OmniSharp'
+                        end
+                        if omnisharp_binary and omnisharp_binary ~= '' then
                             return {
                                 omnisharp_binary,
                                 "--languageserver",
                                 "--hostPID",
-                                toString(pid)
+                                tostring(pid)
                             }
                         else
                             return nil
@@ -25,6 +30,12 @@ return {
                 },
             },
         },
+        config = function(_, opts)
+            local lspconfig = require('lspconfig')
+            for server, server_opts in pairs(opts.servers) do
+                lspconfig[server].setup(server_opts)
+            end
+        end,
     },
     {
         "mason-org/mason-lspconfig.nvim",
