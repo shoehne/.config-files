@@ -1,3 +1,6 @@
 [submodule "nvim/ripgrep"]
 	path = nvim/ripgrep
 	url = https://github.com/BurntSushi/ripgrep
+[submodule "nvim/omnisharp"]
+	path = nvim/omnisharp
+	url = https://github.com/OmniSharp/omnisharp-roslyn

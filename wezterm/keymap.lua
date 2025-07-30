@@ -10,12 +10,12 @@ function module.keymaps (config)
 	config.keys = {
 
 			{
-				key = 'w',
+				key = 'q',
 				mods = 'CTRL',
 				action = act.CloseCurrentTab { confirm = false }
 			},
 			{ 
-				key = 't',
+				key = 'n',
 				mods = 'CTRL',
 				action = act.SpawnTab 'CurrentPaneDomain'
 			},
@@ -90,7 +90,7 @@ function module.keymaps (config)
 				action = act.MoveTabRelative(1)
 			},
 			{
-				key = 'W',
+				key = 'Q',
 				mods = 'CTRL|SHIFT',
 				action = act.CloseCurrentPane { confirm = false }
 			},
