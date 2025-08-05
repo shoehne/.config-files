@@ -20,7 +20,7 @@ return {
                 vim.keymap.set('n', '<leader>ff', builtin.find_files, { 
                     desc = ' Telescope find files'
                 }),
-                vim.keymap.set('n', '<F-12>', builtin.lsp_references, {
+                vim.keymap.set('n', '<F12>', builtin.lsp_references, {
                     desc = 'Find LSP references'
                 })
             }
