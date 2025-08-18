@@ -5,8 +5,7 @@ local module = {}
 function module.keymaps (config)
 
 
-	disable_default_key_bindings = true 
-	config.leader = {key = 'Space', mods = 'CTRL'}
+	disable_default_key_bindings = true
 	config.keys = {
 
 			{
@@ -14,7 +13,7 @@ function module.keymaps (config)
 				mods = 'CTRL',
 				action = act.CloseCurrentTab { confirm = false }
 			},
-			{ 
+			{
 				key = 'n',
 				mods = 'CTRL',
 				action = act.SpawnTab 'CurrentPaneDomain'
@@ -38,41 +37,6 @@ function module.keymaps (config)
 				key = 'l',
 				mods = 'CTRL',
 				action = act.ActivateTabRelative(1)
-			},
-			{
-				key = '1',
-				mods = 'CTRL',
-				action = act.ActivateTab(0)
-			},
-			{
-				key = '2',
-				mods = 'CTRL',
-				action = act.ActivateTab(1) 
-			},
-			{
-				key = '3',
-				mods = 'CTRL',
-				action = act.ActivateTab(2) 
-			},
-			{
-				key = '4',
-				mods = 'CTRL',
-				action = act.ActivateTab(3)
-			},
-			{
-				key = '5',
-				mods = 'CTRL',
-				action = act.ActivateTab(4)
-			},
-			{
-				key = '6',
-				mods = 'CTRL',
-				action = act.ActivateTab(5)
-			},
-			{
-				key = '7',
-				mods = 'CTRL',
-				action = act.ActivateTab(6)
 			},
 			{
 				key = 'p',
@@ -193,6 +157,19 @@ function module.keymaps (config)
 				action = act.ActivateCopyMode
 			}
 	}
+
+    for i =  1, 8 do 
+        table.insert(config.keys, {
+            key = tostring(i),
+            mods = 'CTRL|ALT',
+            action = act.MoveTab(i - 1),
+        })
+        table.insert(config.keys, {
+            key = tostring(i),
+            mods = 'CTRL',
+            action = act.ActivateTab(i - 1),
+        })
+    end
 end
 
 return module

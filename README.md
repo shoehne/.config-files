@@ -1,0 +1,11 @@
+# Requirements
+## [starship](https://starship.rs/)
+## [WezTerm](https://wezterm.org/)
+## [neovim]()
+## [nushell](https://www.nushell.sh/)
+## [lf](https://github.com/gokcehan/lf)
+## [VersionFox/vfox](https://vfox.dev/)
+## Windows
+## Linux
+### [hypr](https://hypr.land/)
+### [waybar](https://github.com/Alexays/Waybar)

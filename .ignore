@@ -1,0 +1,4 @@
+node_modules/
+*.log
+nvim/omnisharp/
+nvim/ripgrep/

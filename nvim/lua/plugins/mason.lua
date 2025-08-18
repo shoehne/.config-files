@@ -5,45 +5,8 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
-        opts = {
-            servers = {
-                omnisharp = {
-                    enabled = false,
-                    cmd = (function()
-                        local pid = vim.fn.getpid()
-                        local omnisharp_binary = ''
-                        if package.config:sub(1, 1) == '\\' then
-                            omnisharp_binary = '../../omnisharp/artifacts/publish/OmniSharp.Stdio.Driver/win7-x64/net6.0/OmniSharp.exe'
-                        else
-                            omnisharp_binary = '../../omnisharp/artifacts/publish/OmniSharp.Stdio.Driver/linux-x64/net6.0/OmniSharp'
-                        end
-                        if omnisharp_binary and omnisharp_binary ~= '' then
-                            return {
-                                omnisharp_binary,
-                                "--languageserver",
-                                "--hostPID",
-                                tostring(pid)
-                            }
-                        else
-                            return nil
-                        end
-                    end)(),
-                },
-            },
-        },
-        config = function(_, opts)
-            local lspconfig = require('lspconfig')
-            for server, server_opts in pairs(opts.servers) do
-                if server_name == 'omnisharp' then
-                    if ft == 'cs' or ft == 'vb' then
-                        server_opts.enabled = true
-                    end
-                end
-
-                if server_opts.enabled == nil or server_opts.enabled == true then
-                    lspconfig[server].setup(server_opts)
-                end
-            end
+        opts = {},
+        config = function()
         end,
     },
     {
@@ -56,10 +19,38 @@ return {
         config = function ()
             require("mason-lspconfig").setup {
                 ensure_installed = {
+                    "asm_lsp",
+                    "clang-format",
                     "clangd",
                     "lua_ls",
+                    "omnisharp",
                 }
             }
         end
     },
+
+    {
+        'neovim/nvim-lspconfig',
+        ft = {
+            'cs',
+            'vb',
+        },
+        config = function() 
+            local root_dir = vim.fn.getcwd()
+            local has_csproj = vim.fn.glob(root_dir .. '/*.csproj') ~= ""
+            local has_vbproj = vim.fn.glob(root_dir .. '/*.vbproj') ~= ""
+
+            if has_csproj or has_vbproj then
+                local lspconfig = require('lspconfig')
+
+                lspconfig.omnisharp.setup {
+                    cmd = {'omnisharp'},
+                    on_attach = function(client, bufnr) 
+                    end,
+                }
+            end
+        end,
+    },
 }
+
+
