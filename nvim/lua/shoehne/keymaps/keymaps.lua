@@ -43,3 +43,4 @@ keymap('n', '<A-q>', '<C-w>q', {
 -- Cellular Automaton
 keymap('n', '<leader>mr', '<cmd>CellularAutomaton make_it_rain<CR>')
 keymap('n', '<leader>gol', '<cmd>CellularAutomaton game_of_life<CR>')
+

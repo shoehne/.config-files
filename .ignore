@@ -1,4 +1,13 @@
+bin/
+packages/
 node_modules/
-*.log
 nvim/omnisharp/
 nvim/ripgrep/
+/obj
+wwwroot/
+*.log
+*.png
+*.jpg
+*.jpeg
+*.tiff
+*.nupkg
