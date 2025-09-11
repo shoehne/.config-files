@@ -10,9 +10,9 @@ config.initial_cols = 120
 config.initial_rows = 28
 
 config.color_scheme_dirs =  { './colors' }
-config.font = wezterm.font('FiraCode Nerd Font', {
+config.font = wezterm.font('Fira Code', {
 
-	weight = 'Bold',
+	weight = 'Regular',
 	italic = false
 })
 config.window_decorations = "RESIZE"

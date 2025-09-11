@@ -10,6 +10,10 @@ return {
     end,
   },
   {
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
+    opts = {},
+  },
+  {
     "Hoffs/omnisharp-extended-lsp.nvim",
   },
   {
@@ -22,8 +26,7 @@ return {
     config = function ()
       require("mason-lspconfig").setup {
         ensure_installed = {
-          --"asm_lsp",
-          -- "clang-format",
+          "asm_lsp",
           "clangd",
           "lua_ls",
           "omnisharp",
@@ -37,7 +40,7 @@ return {
       'cs',
       'vb',
     },
-    config = function() 
+    config = function()
       local root_dir = vim.fn.getcwd()
       local has_csproj = vim.fn.glob(root_dir .. '/*.csproj') ~= ""
       local has_vbproj = vim.fn.glob(root_dir .. '/*.vbproj') ~= ""
@@ -47,7 +50,7 @@ return {
 
         lspconfig.omnisharp.setup {
           cmd = {'omnisharp'},
-          on_attach = function(client, bufnr) 
+          on_attach = function(client, bufnr)
           end,
         }
       end

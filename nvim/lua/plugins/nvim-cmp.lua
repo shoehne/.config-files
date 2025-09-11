@@ -1,18 +1,35 @@
-    return {
-        {
-            'hrsh7th/nvim-cmp',
-            dependencies = {
-                'hrsh7th/cmp-nvim-lsp',
-                'hrsh7th/cmp-buffer',
-                'echasnovski/mini.snippets',
-                'hrsh7th/cmp-path',
-            },
-            config = function()
-                local cmp = require('cmp')
-                cmp.setup({
-                    mapping = cmp.mapping.preset.insert({
-                    })
-                })
-            end,
-        }
+return {
+  {
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+    },
+    config = function()
+      require('cmp').setup {
+        snippet ={
+          expand = function(args)
+            require('luasnip').lsp_expand(args.body)
+          end,
+        },
+        sources = {
+          {
+            name = 'luasnip_choice'
+          },
+        },
+      }
+    end,
+  },
+  {
+    'L3MON4D3/LuaSnip',
+  },
+  {
+    'doxnit/cmp-luasnip-choice',
+    config = function()
+      require('cmp_luasnip_choice').setup({
+        auto_optn = true,
+      })
+    end,
+  },
 }
