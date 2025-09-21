@@ -1,5 +1,22 @@
 return {
   {
+    'linrongbin16/lsp-progress.nvim',
+    config = function() 
+      require('lsp-progress').setup()
+    end,
+  },
+  {
+    'romus204/referencer.nvim',
+    config = function()
+      require('referencer').setup()
+    end,
+  },
+  {
+    'smjonas/inc-rename.nvim',
+    opts = {
+    },
+  },
+  {
     "mason-org/mason.nvim",
     opts = {},
   },

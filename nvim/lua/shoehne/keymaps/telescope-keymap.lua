@@ -1,6 +1,6 @@
 local telescope_builtin = require('telescope.builtin')
 
-vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, { 
+vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, {
   desc = ' Telescope find files'
 })
 vim.keymap.set('n', '<leader>ref',telescope_builtin.lsp_references, {

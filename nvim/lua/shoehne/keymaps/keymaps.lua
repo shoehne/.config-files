@@ -1,6 +1,12 @@
 local keymap = vim.keymap.set
 vim.g.mapleader = " "
-keymap("n", "<leader>pv", vim.cmd.Ex)
+-- keymap("n", "<leader>pv", vim.cmd.Ex)
+keymap('n',
+  '<leader>ex',
+  ':Fern . -drawer -toggle -width=50<CR>',
+  {
+    desc = 'Open file explorer drawer on the left'
+  })
 
 keymap("v", "J", ":m '>+1<CR>gv=gv")
 keymap("v", "K", ":m '<-2<CR>gv=gv")
@@ -14,7 +20,7 @@ keymap("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
 
--- Switch between windows
+-- Switch between buffers
 keymap('n', '<A-h>', '<C-w>h', {
     noremap = true,
     silent = true

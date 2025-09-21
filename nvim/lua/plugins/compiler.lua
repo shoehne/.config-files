@@ -1,4 +1,9 @@
 return {
+  {
+    'stevearc/overseer.nvim',
+    opts = {
+    },
+  },
     {
         "zeioth/compiler.nvim",
         dependencies = {
