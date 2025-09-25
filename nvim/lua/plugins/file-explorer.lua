@@ -3,6 +3,7 @@ return {
     'akinsho/toggleterm.nvim',
     version = '*',
     config = true,
+    lazy = true,
   },
   {
     'lambdalisue/vim-fern',
@@ -14,8 +15,6 @@ return {
       'andykog/fern-bookmarks.vim',
     },
     config = function()
-      require('shoehne.keymaps.file-explorer-keymap.lua')
-
       vim.g["fern#renderer"] = "nvim-web-devicons"
     end,
   },

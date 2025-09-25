@@ -1,29 +1,43 @@
 return {
   {
     'linrongbin16/lsp-progress.nvim',
-    config = function() 
-      require('lsp-progress').setup()
-    end,
   },
   {
     'romus204/referencer.nvim',
-    config = function()
-      require('referencer').setup()
-    end,
   },
   {
     'smjonas/inc-rename.nvim',
-    opts = {
-    },
   },
   {
     "mason-org/mason.nvim",
-    opts = {},
+    config = function()
+      require('mason').setup{
+      }
+    end,
   },
   {
     "neovim/nvim-lspconfig",
     opts = {},
     config = function()
+
+      local fs = vim.fs
+      local uv = vim.uv
+      local nvim_config_root = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":h:h:h")
+      local roslyn_dll = nvim_config_root .. "/roslyn/artifacts/bin/Microsoft.CodeAnalysis.LanguageServer/Debug/net9.0/Microsoft.CodeAnalysis.LanguageServer.dll"
+      vim.lsp.config['roslyn_ls'] = {
+        cmd = {
+          'dotnet',
+          roslyn_dll,
+          '--logLevel',
+          'Information',
+          '--extensionLogDirectory',
+          fs.joinpath(uv.os_tmpdir(), 'roslyn_ls/logs'),
+          '--stdio',
+        },
+        root_markers = { '.csproj' },
+      }
+
+      vim.lsp.enable('roslyn_ls')
     end,
   },
   {
@@ -46,32 +60,9 @@ return {
           "asm_lsp",
           "clangd",
           "lua_ls",
-          "omnisharp",
         }
       }
     end
-  },
-  {
-    'neovim/nvim-lspconfig',
-    ft = {
-      'cs',
-      'vb',
-    },
-    config = function()
-      local root_dir = vim.fn.getcwd()
-      local has_csproj = vim.fn.glob(root_dir .. '/*.csproj') ~= ""
-      local has_vbproj = vim.fn.glob(root_dir .. '/*.vbproj') ~= ""
-
-      if has_csproj or has_vbproj then
-        local lspconfig = require('lspconfig')
-
-        lspconfig.omnisharp.setup {
-          cmd = {'omnisharp'},
-          on_attach = function(client, bufnr)
-          end,
-        }
-      end
-    end,
   },
 }
 

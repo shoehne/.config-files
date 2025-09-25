@@ -3,6 +3,7 @@ packages/
 node_modules/
 nvim/omnisharp/
 nvim/ripgrep/
+nvim/roslyn/
 /obj
 wwwroot/
 *.log
