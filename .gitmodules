@@ -4,3 +4,9 @@
 [submodule "nvim/roslyn"]
 	path = nvim/roslyn
 	url = https://github.com/dotnet/roslyn.git
+[submodule "nvim/dotnet-runtime"]
+	path = nvim/dotnet-runtime
+	url = https://github.com/dotnet/runtime.git
+[submodule "nvim/netcoredbg"]
+	path = nvim/netcoredbg
+	url = https://github.com/Samsung/netcoredbg.git

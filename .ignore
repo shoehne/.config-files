@@ -4,6 +4,8 @@ node_modules/
 nvim/omnisharp/
 nvim/ripgrep/
 nvim/roslyn/
+nvim/dotnet-runtime
+nvim/netcoredbg
 /obj
 wwwroot/
 *.log

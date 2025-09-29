@@ -30,14 +30,22 @@ return {
   },
   {
     'GustavEikaas/easy-dotnet.nvim',
+    enabled = true,
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope.nvim'
     },
-    ft = { 'csproj' },
+    -- ft = { 'csproj' },
     cmd = { 'Dotnet' },
     config = function()
-      require('easy-dotnet').setup()
+      local nvim_config_root = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":h:h:h")
+      local netcoredbg_bin = nvim_config_root .. "/netcoredbg/build/src/Release/netcoredbg.exe"
+      local dotnet = require('easy-dotnet')
+      dotnet.setup {
+        debugger = {
+          bin_path = netcoredbg_bin,
+        }
+      }
     end,
   },
 }
