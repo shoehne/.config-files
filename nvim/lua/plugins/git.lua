@@ -1,11 +1,13 @@
 return {
   {
     'lewis6991/gitsigns.nvim',
+    enabled = false,
     opts = {
     },
   },
   {
     'sindrets/diffview.nvim',
+    enabled = false,
   },
   {
     "tpope/vim-fugitive",
@@ -16,6 +18,7 @@ return {
   },
   {
     'NeogitOrg/neogit',
+    enabled = false,
     version = '*',
     cmd = { 'Neogit' },
     dependencies = {

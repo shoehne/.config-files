@@ -1,6 +1,7 @@
 return {
   {
     "echasnovski/mini.misc",
+    enabled = false,
     version = '*',
     config = function()
       require('mini.misc').setup()
@@ -8,11 +9,8 @@ return {
     end,
   },
   {
-    'echasnovski/mini.colors',
-    version = '*',
-  },
-  {
     'echasnovski/mini.sessions',
+    enabled = false,
     version = '*',
     config = function()
       -- require('mini.sessions').setup({
@@ -22,6 +20,7 @@ return {
     },
     {
       'echasnovski/mini.icons',
+      enabled = false,
       version = '*',
     },
   }

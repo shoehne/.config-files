@@ -30,4 +30,15 @@ vim.o.scrolloff = 10
 vim.o.signcolumn = "yes"
 -- vim.o.isfname:append("@-@")
 
-vim.o.updatetime = 250
+-- Enable nvim-treesitter highlighting
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { '<filetype>' },
+  callback = function()
+    vim.treesitter.start() 
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
+})
+
+-- Set the colour theme
+-- vim.cmd("colorscheme cyberpurple")

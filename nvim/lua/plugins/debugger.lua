@@ -1,6 +1,7 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    enabled = false,
     dependencies = {
       'rcarriga/nvim-dap-ui',
       'jay-babu/mason-nvim-dap.nvim',
@@ -57,6 +58,7 @@ return {
   },
   {
     'jay-babu/mason-nvim-dap.nvim',
+    enabled = false,
     dependencies = {
       'mason-org/mason.nvim',
       'mfussenegger/nvim-dap',
@@ -72,6 +74,7 @@ return {
   },
   {
     'rcarriga/nvim-dap-ui',
+    enabled = false,
     version = '4.x',
     dependencies = {
       "mfussenegger/nvim-dap",
@@ -99,6 +102,7 @@ return {
   },
   {
     'brevin33/raddebugger.nvim',
+    enabled = false,
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope.nvim',

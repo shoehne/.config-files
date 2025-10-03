@@ -1,6 +1,7 @@
 return {
   {
     'mistweaverco/kulala.nvim',
+    enabled = false,
     keys = {
       {
         '<leader>Rs',
@@ -27,6 +28,7 @@ return {
   },
   {
     'oysandvik94/curl.nvim',
+    enabled = false,
     cmd = {
       'CurlOpen',
     },

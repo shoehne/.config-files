@@ -1,6 +1,13 @@
 return {
   {
+    'nvim-lua/plenary.nvim',
+    enabled = true,
+    lazy = false,
+    priority  = 1000,
+  },
+  {
     'nvim-telescope/telescope.nvim',
+    enabled = true,
     dependencies = {
       'nvim-lua/plenary.nvim'
     },
