@@ -1,12 +1,6 @@
 local keymap = vim.keymap.set
 vim.g.mapleader = " "
 -- keymap("n", "<leader>pv", vim.cmd.Ex)
-keymap('n',
-  '<leader>ex',
-  ':Fern . -drawer -toggle -width=50<CR>',
-  {
-    desc = 'Open file explorer drawer on the left'
-  })
 
 keymap("v", "J", ":m '>+1<CR>gv=gv")
 keymap("v", "K", ":m '<-2<CR>gv=gv")
@@ -45,6 +39,20 @@ keymap('n', '<A-q>', '<C-w>q', {
     noremap = true,
     silent = true
 })
+
+-- File explorer
+keymap('n',
+  '<leader>ed',
+  ':Fern . -drawer -toggle -width=50<CR>',
+  {
+    desc = 'Open file explorer drawer on the left'
+  })
+keymap('n',
+  '<leader>eb',
+  ':Fern .<CR>',
+  {
+    desc = 'Open file explorer in buffer'
+  })
 
 -- Cellular Automaton
 keymap('n', '<leader>mr', '<cmd>CellularAutomaton make_it_rain<CR>')

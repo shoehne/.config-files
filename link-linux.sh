@@ -6,7 +6,8 @@ rm -rfv ($env.HOME)/.config/background_images
 rm -rfv ($env.HOME)/.config/nushell
 rm -rfv ($env.HOME)/.config/lf
 rm -rfv ($env.HOME)/.config/starship.toml
-rm -rfv ($env.HOME)/.config/.ignore
+rm -fv ($env.HOME)/.config/.ignore
+rm -rfv ($env.HOME)/.config/fuzzel
 
 ln -s ($env.PWD)/nvim ($env.HOME)/.config/nvim
 ln -s ($env.PWD)/waybar ($env.HOME)/.config/waybar
@@ -17,3 +18,4 @@ ln -s ($env.PWD)/nushell ($env.HOME)/.config/nushell
 ln -s ($env.PWD)/lf ($env.HOME)/.config/lf
 ln -s ($env.PWD)/starship/starship.toml ($env.HOME)/.config/starship.toml
 ln -s ($env.PWD)/.ignore ($env.HOME)/.config/.ignore
+ln -s ($env.PWD)/fuzzel ($env.HOME)/.config/fuzzel

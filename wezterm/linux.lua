@@ -5,8 +5,8 @@ local module = {}
 function module.linux_config(config)
 
     config.enable_wayland = false
-    config.size = 10
+    config.font_size = 14
+    config.window_background_opacity = 0.70
 end
-
 
 return module
