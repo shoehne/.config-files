@@ -12,7 +12,7 @@ function module.windows_config (config)
                 File = os.getenv('XDG_CONFIG_HOME') .. '/background_images/cyberpunk_bike.jpg'
             },
             hsb = {
-                brightness = 0.10
+                brightness = 0.03
             },
         },
     }

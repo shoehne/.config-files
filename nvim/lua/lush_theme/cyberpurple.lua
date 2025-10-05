@@ -123,7 +123,7 @@ local theme = lush(function(injected_functions)
     -- TabLineFill    { }, -- Tab pages line, where there are no labels
     -- TabLineSel     { }, -- Tab pages line, active tab page label
     -- Title          { }, -- Titles for output from ":set all", ":autocmd" etc.
-    Visual         { fg = hsl(000, 000, 100), bg = Normal.fg.da(90) }, -- Visual mode selection
+    Visual         { fg = hsl(000, 000, 100), bg = Normal.fg.da(50) }, -- Visual mode selection
     -- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg     { fg = hsl(025, 100, 035) }, -- Warning messages
     -- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
@@ -140,7 +140,7 @@ local theme = lush(function(injected_functions)
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment        { }, -- Any comment
+    Comment        { fg = Normal.fg.ro(30).da(50)}, -- Any comment
 
     -- Constant       { }, -- (*) Any constant
     -- String         { }, --   A string constant: "this is a string"
@@ -241,25 +241,25 @@ local theme = lush(function(injected_functions)
     --
     -- For more information see https://github.com/rktjmp/lush.nvim/issues/109
 
-    -- sym"@text.literal"      { }, -- Comment
+    sym"@text.literal"      { Comment }, -- Comment
     -- sym"@text.reference"    { }, -- Identifier
     -- sym"@text.title"        { }, -- Title
     -- sym"@text.uri"          { }, -- Underlined
     -- sym"@text.underline"    { }, -- Underlined
     -- sym"@text.todo"         { }, -- Todo
-    -- sym"@comment"           { }, -- Comment
-    -- sym"@punctuation"       { }, -- Delimiter
+    sym"@comment"           { Comment }, -- Comment
+    sym"@punctuation"       { fg = hsl(210, 085, 040) }, -- Delimiter
     -- sym"@constant"          { }, -- Constant
     -- sym"@constant.builtin"  { }, -- Special
     -- sym"@constant.macro"    { }, -- Define
     -- sym"@define"            { }, -- Define
     -- sym"@macro"             { }, -- Macro
-    -- sym"@string"            { }, -- String
-    -- sym"@string.escape"     { }, -- SpecialChar
+    sym"@string"            { fg = hsl(210, 085, 070) }, -- String
+    sym"@string.escape"     { fg = sym"@string".fg.da(30) }, -- SpecialChar
     -- sym"@string.special"    { }, -- SpecialChar
-    -- sym"@character"         { }, -- Character
+    sym"@character"         { sym"@string" }, -- Character
     -- sym"@character.special" { }, -- SpecialChar
-    -- sym"@number"            { }, -- Number
+    -- sym"@number"            { fg = hsl( }, -- Number
     -- sym"@boolean"           { }, -- Boolean
     -- sym"@float"             { }, -- Float
     -- sym"@function"          { }, -- Function
@@ -276,7 +276,7 @@ local theme = lush(function(injected_functions)
     -- sym"@operator"          { }, -- Operator
     -- sym"@keyword"           { }, -- Keyword
     -- sym"@exception"         { }, -- Exception
-    -- sym"@variable"          { }, -- Identifier
+    sym"@variable"          { Normal }, -- Identifier
     -- sym"@type"              { }, -- Type
     -- sym"@type.definition"   { }, -- Typedef
     -- sym"@storageclass"      { }, -- StorageClass
