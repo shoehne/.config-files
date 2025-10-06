@@ -1,7 +1,7 @@
 return {
   {
     "mfussenegger/nvim-dap",
-    enabled = false,
+    enabled = true,
     dependencies = {
       'rcarriga/nvim-dap-ui',
       'jay-babu/mason-nvim-dap.nvim',
@@ -58,7 +58,8 @@ return {
   },
   {
     'jay-babu/mason-nvim-dap.nvim',
-    enabled = false,
+    enabled = true,
+    lazy = true,
     dependencies = {
       'mason-org/mason.nvim',
       'mfussenegger/nvim-dap',
@@ -74,7 +75,8 @@ return {
   },
   {
     'rcarriga/nvim-dap-ui',
-    enabled = false,
+    enabled = true,
+    lazy = true,
     version = '4.x',
     dependencies = {
       "mfussenegger/nvim-dap",

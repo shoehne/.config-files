@@ -9,7 +9,7 @@ local act = wezterm.action
 config.initial_cols = 120
 config.initial_rows = 28
 
-config.color_scheme_dirs =  { './colors' }
+config.color_scheme_dirs =  { wezterm.config_file .. '/colors' }
 config.font = wezterm.font('Fira Code', {
 
 	weight = 'Regular',

@@ -1,7 +1,7 @@
 return {
   {
     "zeioth/compiler.nvim",
-    enabled = false,
+    enabled = true,
     dependencies = {
       "stevearc/overseer.nvim",
       "nvim-telescope/telescope.nvim",
@@ -15,7 +15,7 @@ return {
   },
   {
     "stevearc/overseer.nvim",
-    enabled = false,
+    enabled = true,
     cmd = {
       "CompilerOpen",
       "CompilerToggleResults",
@@ -32,7 +32,7 @@ return {
   },
   {
     'GustavEikaas/easy-dotnet.nvim',
-    enabled = false,
+    enabled = true,
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope.nvim'

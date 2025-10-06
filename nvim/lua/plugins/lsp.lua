@@ -1,19 +1,19 @@
 return {
   {
     'linrongbin16/lsp-progress.nvim',
-    enabled = false,
+    enabled = true,
   },
   {
     'romus204/referencer.nvim',
-    enabled = false,
+    enabled = true,
   },
   {
     'smjonas/inc-rename.nvim',
-    enabled = false,
+    enabled = true,
   },
   {
     "mason-org/mason.nvim",
-    enabled = false,
+    enabled = true,
     config = function()
       require('mason').setup{
       }
@@ -21,7 +21,7 @@ return {
   },
   {
     "mason-org/mason-lspconfig.nvim",
-    enabled = false,
+    enabled = true,
     opts = {},
     dependencies = {
       "mason-org/mason.nvim",
@@ -39,7 +39,7 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    enabled = false,
+    enabled = true,
     opts = {},
     config = function()
 
@@ -67,7 +67,7 @@ return {
   },
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    enabled = false,
+    enabled = true,
     opts = {},
   },
 }
