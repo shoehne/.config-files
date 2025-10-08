@@ -155,7 +155,12 @@ function module.keymaps (config)
 				key = 'X',
 				mods = 'CTRL|SHIFT',
 				action = act.ActivateCopyMode
-			}
+			},
+      {
+        key = 'F12',
+        mods = 'CTRL|SHIFT',
+        action = act.ShowDebugOverlay
+      },
 	}
 
     for i =  1, 8 do 
