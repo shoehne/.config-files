@@ -2,6 +2,10 @@ return {
   {
     "mfussenegger/nvim-dap",
     enabled = true,
+    cmd = {
+      'DapToggleBreakpoint',
+      'DapContinue',
+    },
     dependencies = {
       'rcarriga/nvim-dap-ui',
       'jay-babu/mason-nvim-dap.nvim',
@@ -59,7 +63,9 @@ return {
   {
     'jay-babu/mason-nvim-dap.nvim',
     enabled = true,
-    lazy = true,
+    cmd = {
+      'Mason'
+    },
     dependencies = {
       'mason-org/mason.nvim',
       'mfussenegger/nvim-dap',
@@ -76,8 +82,10 @@ return {
   {
     'rcarriga/nvim-dap-ui',
     enabled = true,
-    lazy = true,
     version = '4.x',
+    cmd = {
+      'DapContinue',
+    },
     dependencies = {
       "mfussenegger/nvim-dap",
       'nvim-neotest/nvim-nio'
@@ -101,6 +109,10 @@ return {
         dap_ui.close()
       end
     end,
+  },
+  {
+    'nvim-neotest/nvim-nio',
+    lazy = false,
   },
   {
     'brevin33/raddebugger.nvim',

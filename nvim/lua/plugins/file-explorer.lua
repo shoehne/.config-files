@@ -4,7 +4,6 @@ return {
     enabled = false,
     version = '*',
     config = true,
-    lazy = true,
   },
   {
     'lambdalisue/vim-fern',

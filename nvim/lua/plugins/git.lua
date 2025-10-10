@@ -2,12 +2,16 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     enabled = true,
-    opts = {
+    event = {
+      'BufReadPre',
     },
   },
   {
     'sindrets/diffview.nvim',
     enabled = true,
+    cmd = {
+      'DiffViewOpen',
+    },
   },
   {
     "tpope/vim-fugitive",
@@ -20,7 +24,9 @@ return {
     'NeogitOrg/neogit',
     enabled = true,
     version = '*',
-    cmd = { 'Neogit' },
+    cmd = { 
+      'Neogit'
+    },
     dependencies = {
       'nvim-lua/plenary.nvim',
       'sindrets/diffview.nvim',

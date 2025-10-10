@@ -40,6 +40,14 @@ keymap('n', '<A-q>', '<C-w>q', {
     silent = true
 })
 
+-- Neogit
+keymap('n',
+  '<M-F1>',
+  ':Neogit kind=floating<CR>',
+  {
+    desc = 'Open Neogit as a floating window'
+  })
+
 -- File explorer
 keymap('n',
   '<leader>ed',

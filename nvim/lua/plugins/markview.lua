@@ -1,7 +1,7 @@
 return {
     {
         "OXY2DEV/markview.nvim",
-        enabled = false,
+        enabled = true,
         ft = {
             "markdown",
             "md",

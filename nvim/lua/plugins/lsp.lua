@@ -2,18 +2,30 @@ return {
   {
     'linrongbin16/lsp-progress.nvim',
     enabled = true,
+    event = {
+      'BufReadPre',
+    },
   },
   {
     'romus204/referencer.nvim',
     enabled = true,
+    event = {
+      'BufReadPre',
+    },
   },
   {
     'smjonas/inc-rename.nvim',
     enabled = true,
+    event = {
+      'BufReadPre',
+    },
   },
   {
     "mason-org/mason.nvim",
     enabled = true,
+    cmd = {
+      'Mason',
+    },
     config = function()
       require('mason').setup{
       }
@@ -22,7 +34,9 @@ return {
   {
     "mason-org/mason-lspconfig.nvim",
     enabled = true,
-    opts = {},
+    event = {
+      'BufReadPre',
+    },
     dependencies = {
       "mason-org/mason.nvim",
       "neovim/nvim-lspconfig"
@@ -40,7 +54,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     enabled = true,
-    opts = {},
+    event = {
+      'BufReadPre',
+    },
     config = function()
 
       local fs = vim.fs
@@ -67,8 +83,7 @@ return {
   },
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    enabled = true,
-    opts = {},
+    enabled = false,
   },
 }
 
