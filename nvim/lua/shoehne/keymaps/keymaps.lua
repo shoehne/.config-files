@@ -14,7 +14,7 @@ keymap("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
 
--- Switch between buffers
+-- Buffers, Windows, Tabs
 keymap('n', '<A-h>', '<C-w>h', {
     noremap = true,
     silent = true
@@ -39,6 +39,33 @@ keymap('n', '<A-q>', '<C-w>q', {
     noremap = true,
     silent = true
 })
+keymap('n', '<A-P>', '<C-W>p', {
+  noremap = true,
+  silent = true
+})
+keymap('n', '<A-Q>', ':tabclose<CR>', {
+  noremap = true,
+  silent = true
+})
+keymap('n', '<A-N>', ':tabnew<CR>', {
+  noremap = true,
+  silent = true
+})
+keymap('n', '<A-H>', 'gT', {
+  noremap = true,
+  silent = true
+})
+keymap('n', '<A-L>', 'gt', {
+  noremap = true,
+  silent = true
+})
+
+for i = 1, 9 do
+  keymap('n', string.format("<A-%d>", i), string.format("%dgt", i), {
+    noremap = true,
+    silent = true
+  })
+end
 
 -- Neogit
 keymap('n',
