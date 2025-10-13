@@ -1,7 +1,7 @@
 local detect_env = require('shoehne.detect-cpp-environment')
 
 return {
-  name = "Premake: Generate project files"
+  name = "Premake: Generate project files",
   builder = function()
     local premake = detect_env.HasPremake()
     if not premake then
@@ -52,8 +52,8 @@ return {
     local choice = vim.fn.inputlist(labels)
     local selected = options[choice]
     if not selected then 
-      vim.notify("Invalid selection,
-      vim.log.levels.ERROR")
+      vim.notify("Invalid selection",
+      vim.log.levels.ERROR)
       return nil
     end
     

@@ -1,0 +1,56 @@
+# Java-like braces, 2-space indents, vertical parameters, indented namespaces,
+# and indented case blocks with braces
+
+BasedOnStyle: LLVM
+IndentWidth: 2
+UseTab: Never
+
+# Braces: Java-style
+BreakBeforeBraces: Attach
+
+# Namespace and scope indentation
+NamespaceIndentation: All
+IndentAccessModifiers: false
+
+# Switch/case indentation
+IndentCaseLabels: true
+IndentCaseBlocks: true   # ensures code inside { } after case is indented
+
+# Whitespace and alignment
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+SpaceBeforeParens: ControlStatements
+PointerAlignment: Right
+
+# Compactness rules
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortBlocksOnASingleLine: Never
+
+# Function declaration & call formatting
+BinPackParameters: false        # Each parameter gets its own line if wrapping
+BinPackArguments: false
+BreakBeforeParameters: false    # First param on same line as function name
+ContinuationIndentWidth: 4      # Indent following params relative to return type
+
+# Constructor formatting
+BreakConstructorInitializersBeforeComma: false
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ConstructorInitializerIndentWidth: 2
+
+# Lambda formatting
+LambdaBodyIndentation: Signature
+SpaceAfterCStyleCast: false
+
+# Line wrapping
+ColumnLimit: 100
+ReflowComments: true
+BreakBeforeTernaryOperators: false
+
+# Include organization
+SortIncludes: true
+IncludeBlocks: Regroup
+
+# Misc readability tweaks
+KeepEmptyLinesAtTheStartOfBlocks: false

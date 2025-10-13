@@ -16,10 +16,13 @@ return {
   {
     "stevearc/overseer.nvim",
     enabled = true,
+    lazy = false,
     cmd = {
       "CompilerOpen",
       "CompilerToggleResults",
-      "CompilerRedo"
+      "CompilerRedo",
+      "OverseerRun",
+      "OverseerToggle",
     },
     opts = {
       task_list = {
@@ -29,6 +32,22 @@ return {
         default_detail = 1
       },
     },
+    -- config = function(_, opts)
+    --   local overseer = require('overseer')
+    --
+    --   overseer.setup({
+    --     templates = {
+    --       'builtin',
+    --       'user.generate-premake',
+    --     },
+    --     task_list = {
+    --       direction = "bottom",
+    --       min_height = 25,
+    --       max_height = 25,
+    --       default_detail = 1
+    --     },
+    --   })
+    -- end,
   },
   {
     'GustavEikaas/easy-dotnet.nvim',

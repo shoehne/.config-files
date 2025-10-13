@@ -32,6 +32,7 @@ return {
           find_files = {
             find_command = {
               'rg',
+              '--hidden',
               '--files',
               '--ignore-file',
               vim.fn.expand('$XDG_CONFIG_HOME/.ignore'),

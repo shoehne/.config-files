@@ -11,6 +11,10 @@ return {
     }
   end,
   condition = {
+    filetype = {
+      'c',
+      'cpp',
+    },
     callback = function()
       return vim.fn.filereadable("Makefile") == 1
     end

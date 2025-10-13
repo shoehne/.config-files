@@ -2,10 +2,6 @@ return {
   {
     "mfussenegger/nvim-dap",
     enabled = true,
-    cmd = {
-      'DapToggleBreakpoint',
-      'DapContinue',
-    },
     dependencies = {
       'rcarriga/nvim-dap-ui',
       'jay-babu/mason-nvim-dap.nvim',

@@ -72,7 +72,7 @@ keymap('n',
   '<M-F1>',
   ':Neogit kind=floating<CR>',
   {
-    desc = 'Open Neogit as a floating window'
+   desc = 'Open Neogit as a floating window'
   })
 
 -- File explorer
@@ -93,3 +93,14 @@ keymap('n',
 keymap('n', '<leader>mr', '<cmd>CellularAutomaton make_it_rain<CR>')
 keymap('n', '<leader>gol', '<cmd>CellularAutomaton game_of_life<CR>')
 
+-- Compiler
+keymap('n', '<S-F6>', ':OverseerToggle<CR>', {
+  desc = 'Open Overseer Task List',
+  noremap = true,
+  silent = true
+})
+keymap('n', '<S-F5>', ':OverseerRun<CR>', {
+  desc = 'Run Overseer Task',
+  noremap = true,
+  silent = true
+})

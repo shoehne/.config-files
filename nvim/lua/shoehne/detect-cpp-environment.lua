@@ -39,7 +39,7 @@ function M.FindMsvc(find_all)
               version = ver,
               edition = edition,
               path = bat
-            })
+            }
           end
         end
       end
@@ -57,10 +57,9 @@ function M.HasClang()
   return vim.fn.executable("clang") == 1
 end
 function M.HasPremake()
-  local cwd = vim.fn.getcwd()
-  local windows_bin = cwd .. "\\premake5.exe"
-  local unix_bin = cwd "/premake5"
-  local premake_file = cwd .. "/premake5.lua"
+  local windows_bin = vim.fn.getcwd() .. "\\premake5.exe"
+  local unix_bin = vim.fn.getcwd() .. "/premake5"
+  local premake_file = vim.fn.getcwd() .. "/premake5.lua"
 
   if vim.fn.filereadable(windows_bin) then
     return windows_bin

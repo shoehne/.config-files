@@ -1,7 +1,7 @@
 return {
   {
     'folke/lazydev.nvim',
-    enabled = false,
+    enabled = true,
     ft = 'lua',
     opts = {
       library = {
@@ -19,13 +19,15 @@ return {
   },
   {
     'hrsh7th/nvim-cmp',
-    enabled = false,
+    enabled = true,
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
     },
-
+    event = {
+      'BufReadPre',
+    },
     config = function()
       local cmp =  require('cmp')
 
@@ -64,11 +66,11 @@ return {
   },
   {
     'L3MON4D3/LuaSnip',
-    enabled = false,
+    enabled = true,
   },
   {
     'doxnit/cmp-luasnip-choice',
-    enabled = false,
+    enabled = true,
     config = function()
       require('cmp_luasnip_choice').setup({
         auto_optn = true,

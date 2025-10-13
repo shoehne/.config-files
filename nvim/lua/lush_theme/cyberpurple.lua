@@ -45,6 +45,13 @@
 local lush = require('lush')
 local hsl = lush.hsl
 
+-- Define colours
+local purple = hsl(270, 100, 055)
+local pink = hsl(300, 100, 060)
+local white = hsl(000, 100, 100)
+local red = hsl(360, 100, 025)
+local orange = hsl(025, 100, 035)
+local blue = hsl(210, 085, 070)
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global
@@ -61,7 +68,7 @@ local theme = lush(function(injected_functions)
     --
     -- See :h highlight-groups
     --
-    Normal         { fg = hsl(270, 100, 055)}, -- Normal text
+    Normal         { fg = purple}, -- Normal text
     -- ColorColumn    { }, -- Columns set with 'colorcolumn'
     -- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor         { fg = Normal.fg.li(100) }, -- Character under the cursor
@@ -85,7 +92,7 @@ local theme = lush(function(injected_functions)
     -- SignColumn     { }, -- Column where |signs| are displayed
     -- IncSearch      { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     -- Substitute     { }, -- |:substitute| replacement text highlighting
-    LineNr         { Normal }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr         { fg = purple }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     LineNrAbove    { LineNr }, -- Line number for when the 'relativenumber' option is set, above the cursor line
     LineNrBelow    { LineNr }, -- Line number for when the 'relativenumber' option is set, below the cursor line
     -- CursorLineNr   { }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
@@ -248,7 +255,7 @@ local theme = lush(function(injected_functions)
     -- sym"@text.underline"    { }, -- Underlined
     -- sym"@text.todo"         { }, -- Todo
     sym"@comment"           { Comment }, -- Comment
-    sym"@punctuation"       { fg = hsl(210, 085, 040) }, -- Delimiter
+    sym"@punctuation"       { fg = blue.da(30) }, -- Delimiter
     -- sym"@constant"          { }, -- Constant
     -- sym"@constant.builtin"  { }, -- Special
     -- sym"@constant.macro"    { }, -- Define
@@ -259,7 +266,7 @@ local theme = lush(function(injected_functions)
     -- sym"@string.special"    { }, -- SpecialChar
     sym"@character"         { sym"@string" }, -- Character
     -- sym"@character.special" { }, -- SpecialChar
-    -- sym"@number"            { fg = hsl( }, -- Number
+    -- sym"@number"            { fg =  }, -- Number
     -- sym"@boolean"           { }, -- Boolean
     -- sym"@float"             { }, -- Float
     -- sym"@function"          { }, -- Function

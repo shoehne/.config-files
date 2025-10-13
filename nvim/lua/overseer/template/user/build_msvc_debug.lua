@@ -3,7 +3,7 @@ local detect_env = require('shoehne.detect-cpp-environment')
 return {
   name = "Build Debug (MSVC)",
   builder = function()
-    local msvc = detect_env.find_msvc()
+    local msvc = detect_env.FindMsvc()
     if not msvc then
       vim.notify("No Visual Studio installation found!",
       vim.log.levels.ERROR)
@@ -26,6 +26,10 @@ return {
     }
   end,
   condition = {
+    filetype = {
+      'c',
+      'cpp',
+    },
     callback = function()
       return vim.fn.glob("*.sln") ~= ""
     end,
