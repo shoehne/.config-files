@@ -31,25 +31,23 @@ vim.o.signcolumn = "yes"
 -- vim.o.isfname:append("@-@")
 
 -- Enable nvim-treesitter highlighting
+vim.opt.foldlevelstart = 99
 local filetypes_table = {
   'cs',
   'lua',
 }
-vim.api.nvim_create_autocmd({
-  "FileType",
-  "BufReadPost",
-},
-{
+vim.api.nvim_create_autocmd('FileType', {
   pattern = filetypes_table,
   callback = function()
-    vim.treesitter.start() 
+    vim.treesitter.start()
     vim.wo.foldmethod = 'expr'
     vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-    vim.wo.foldlevel = 99
-    vim.wo.foldlevelstart = 99
-    vim.wo.foldenable = true
     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end,
+})
+vim.api.nvim_create_autocmd({ 'BufWinLeave', 'BufWinEnter' }, {
+ pattern = filetypes_table,
+ command = [[silent! mkview | silent! loadview]],
 })
 
 -- Set the colour theme

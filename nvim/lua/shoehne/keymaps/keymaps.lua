@@ -14,6 +14,12 @@ keymap("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
 
+keymap('n', '<Tab>', 'za', {
+  noremap = true,
+  silent = true,
+  desc = "Toggle fold"
+})
+
 -- Buffers, Windows, Tabs
 keymap('n', '<A-h>', '<C-w>h', {
     noremap = true,
