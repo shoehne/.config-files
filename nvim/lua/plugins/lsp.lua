@@ -62,7 +62,7 @@ return {
       local fs = vim.fs
       local uv = vim.uv
       local nvim_config_root = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":h:h:h")
-      local roslyn_dll = nvim_config_root .. "/roslyn/artifacts/bin/Microsoft.CodeAnalysis.LanguageServer/Debug/net9.0/Microsoft.CodeAnalysis.LanguageServer.dll"
+      local roslyn_dll = nvim_config_root .. "/roslyn/artifacts/bin/Microsoft.CodeAnalysis.LanguageServer/Release/net9.0/Microsoft.CodeAnalysis.LanguageServer.dll"
       vim.lsp.config['roslyn_ls'] = {
         cmd = {
           'dotnet',

@@ -13,3 +13,9 @@ vim.keymap.set('n', '<leader>cfg', function()
   telescope_builtin.find_files {cwd = vim.fn.stdpath'config'}
 end,
 {desc = "Search in nvim config"})
+vim.keymap.set('n', '<F12>', telescope_builtin.lsp_definitions, {
+  desc = "Goto implementation"
+})
+vim.keymap.set('n', '<leader><F12>', telescope_builtin.lsp_implementations, {
+  desc = "Goto definition"
+})

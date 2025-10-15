@@ -35,6 +35,10 @@ keymap('n', '<A-n>', '<C-w>n', {
     noremap = true,
     silent = true
 })
+keymap('n', '<A-v>', '<C-w>v', {
+  noremap = true,
+  silent = true
+})
 keymap('n', '<A-q>', '<C-w>q', {
     noremap = true,
     silent = true
@@ -73,6 +77,12 @@ keymap('n',
   ':Neogit kind=floating<CR>',
   {
    desc = 'Open Neogit as a floating window'
+  })
+keymap('n',
+  '<M-F2>',
+  ':Neogit cwd=%:p:h kind=floating<CR>',
+  {
+    desc = 'Open Neogit in the repo of the current file'
   })
 
 -- File explorer
