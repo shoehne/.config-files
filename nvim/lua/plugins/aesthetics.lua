@@ -13,4 +13,11 @@ return {
       'tjdevries/colorbuddy.nvim',
       enabled = false,
     },
+  {
+    'tjdevries/overlength.vim',
+    enabled = true,
+    config = function()
+      vim.g.default_overlength = 80
+    end,
+  },
 }

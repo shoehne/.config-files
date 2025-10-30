@@ -30,18 +30,38 @@ vim.o.scrolloff = 10
 vim.o.signcolumn = "yes"
 -- vim.o.isfname:append("@-@")
 
+vim.api.nvim_create_autocmd({'VimResized',
+  'WinNew',
+  'WinEnter',
+}, {
+  callback =  function()
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+      local config = vim.api.nvim_win_get_config(win)
+      if config.relative == '' then
+        local width = vim.api.nvim_win_get_width(win)
+        if width > 80 then
+          vim.api.nvim_win_set_width(win, 80)
+        end
+      end
+    end
+    end
+})
+
 -- Enable nvim-treesitter highlighting
 vim.opt.foldlevelstart = 99
-local filetypes_table = {
-  'cs',
+local file_types = {
+  'asm',
+  'c',
+  'cpp',
   'lua',
 }
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = filetypes_table,
+  pattern = file_types,
   callback = function()
-    vim.treesitter.start()
+    vim.treesitter.start() 
     vim.wo.foldmethod = 'expr'
     vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    vim.wo.foldenable = true
     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end,
 })

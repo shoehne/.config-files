@@ -41,7 +41,7 @@ keymap('n', '<A-n>', '<C-w>n', {
     noremap = true,
     silent = true
 })
-keymap('n', '<A-v>', '<C-w>v', {
+keymap('n', '<A-v>', '<C-W>v', {
   noremap = true,
   silent = true
 })

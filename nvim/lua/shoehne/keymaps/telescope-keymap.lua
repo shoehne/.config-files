@@ -14,8 +14,8 @@ vim.keymap.set('n', '<leader>cfg', function()
 end,
 {desc = "Search in nvim config"})
 vim.keymap.set('n', '<F12>', telescope_builtin.lsp_definitions, {
-  desc = "Goto implementation"
+  desc = 'Goto definition'
 })
 vim.keymap.set('n', '<leader><F12>', telescope_builtin.lsp_implementations, {
-  desc = "Goto definition"
+  desc = 'Goto implementations'
 })
