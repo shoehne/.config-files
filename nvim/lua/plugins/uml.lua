@@ -4,9 +4,14 @@ return {
     dependencies = {
       'javiorfo/nvim-nyctophilia',
     },
-    enabled = false,
+    enabled = true,
     ft = {
       'plantuml',
+    },
+    opts = {
+      image = {
+        format = 'svg',
+      },
     },
   }
 }
