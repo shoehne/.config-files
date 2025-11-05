@@ -62,12 +62,7 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.wo.foldmethod = 'expr'
     vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
     vim.wo.foldenable = true
-    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end,
-})
-vim.api.nvim_create_autocmd({ 'BufWinLeave', 'BufWinEnter' }, {
- pattern = filetypes_table,
- command = [[silent! mkview | silent! loadview]],
 })
 
 -- Set the colour theme
