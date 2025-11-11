@@ -17,8 +17,12 @@ return {
     'tjdevries/overlength.vim',
     enabled = true,
     config = function()
+      -- vim.fn['overlength#set_overlength']('log', 0)
+      local filetypes = {
+        'markdown'
+      }
+      vim.fn['overlength#disable_filetypes'](filetypes)
       vim.g.default_overlength = 80
-      vim.fn['overlength#set_overlength']('log', 0)
     end,
   },
   {
