@@ -30,6 +30,25 @@ vim.o.scrolloff = 10
 vim.o.signcolumn = "yes"
 -- vim.o.isfname:append("@-@")
 
+vim.o.textwidth = 80
+
+local function adjust_textwidth()
+  local indent = vim.fn.indent(0)
+  local textwidth = vim.o.textwidth
+  local adjusted_textwidth = textwidth - indent
+
+  if adjusted_textwidth > 0 then
+    vim.o.textwidth = adjusted_textwidth
+  else
+    vim.o.textwidth = 0
+  end
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    adjust_textwidth()
+  end,
+})
 vim.api.nvim_create_autocmd({'VimResized',
   'WinNew',
   'WinEnter',
@@ -39,8 +58,8 @@ vim.api.nvim_create_autocmd({'VimResized',
       local config = vim.api.nvim_win_get_config(win)
       if config.relative == '' then
         local width = vim.api.nvim_win_get_width(win)
-        if width > 80 then
-          vim.api.nvim_win_set_width(win, 80)
+        if width > vim.o.textwidth + 5 then
+          vim.api.nvim_win_set_width(win, vim.o.textwidth + 5)
         end
       end
     end
@@ -53,6 +72,7 @@ local file_types = {
   'asm',
   'c',
   'cpp',
+  'cs',
   'lua',
 }
 vim.api.nvim_create_autocmd('FileType', {

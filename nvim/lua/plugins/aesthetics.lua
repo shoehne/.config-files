@@ -21,7 +21,7 @@ return {
       local filetypes = {
         'markdown'
       }
-      vim.fn['overlength#disable_filetypes'](filetypes)
+      -- vim.fn['overlength#disable_filetypes'](filetypes)
       vim.g.default_overlength = 80
     end,
   },

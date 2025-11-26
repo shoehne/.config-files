@@ -8,17 +8,18 @@ return {
     },
     config = function()
       local dap = require('dap')
-      local netcoredbg_bin
-      local is_windows = vim.fn.has("win32") == 1
-
-      if is_windows then
-        netcoredbg_bin = vim.fn.getenv("ProgramFiles(x86)") .. "\\netcoredbg\\netcoredbg.exe"
-        vim.opt.shellslash = false
-      end
+      -- local netcoredbg_bin
+      -- local is_windows = vim.fn.has("win32") == 1
+      --
+      -- if is_windows then
+      --   netcoredbg_bin = vim.fn.getenv("ProgramFiles(x86)") .. "\\netcoredbg\\netcoredbg.exe"
+      --   vim.opt.shellslash = false
+      -- end
 
       dap.adapters.coreclr = {
         type = 'executable',
-        command = netcoredbg_bin,
+        command = vim.fn.stdpath('data') ..
+        '/mason/packages/netcoredbg/netcoredbg/netcoredbg',
         args = { '--interpreter=vscode' },
       }
 
@@ -71,6 +72,7 @@ return {
 
       mason_dap.setup {
         ensure_installed = {
+          'netcoredbg'
         }
       }
     end,
