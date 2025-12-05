@@ -4,6 +4,7 @@
 | --- | --- |
 | `/var/lib/vz/template/iso` | default ISO image storage |
 | `/var/lib/vz/template/cache` | default LXC template storage |
+| `/var/lib/vz/snippets/` | Default location for Cloud Init YAML files |
 | `/etc/pve/firewall/cluster.fw` | Firewall config file for the cluster |
 | `/etc/pve/nodes/nodes/${node_name}/host.fw` | Firewall config file for node ${nodename} |
 
@@ -38,7 +39,6 @@ Console Access
 | Option | Description | Possible Values | Notes |
 | --- | --- | --- | --- |
 | `<VMID>` | Numeric ID for the VM. Must be unique | | |
-| `--ide2 local:
 
 `qm list`, `pct list`
 List all VM's and LXC's respectively

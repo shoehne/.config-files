@@ -16,6 +16,16 @@ return {
             "$HOME/.ssh/config",
           },
         },
+        remote = {
+          copy_dirs = {
+            config = {
+              base = vim.fn.stdpath('config'),
+              dirs = {
+                'remote-config'
+              },
+            },
+          },
+        }
       }
     end,
   },

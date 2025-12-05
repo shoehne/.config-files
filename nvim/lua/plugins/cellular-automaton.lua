@@ -1,7 +1,7 @@
 return {
     {
         "eandrju/cellular-automaton.nvim",
-        enabled = false,
+        enabled = true,
         cmd = { 'CellularAutomaton' },
     }
 }
