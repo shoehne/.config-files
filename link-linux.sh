@@ -1,3 +1,5 @@
+zen_profile=
+
 rm -rfv ($env.HOME)/.config/nvim
 rm -rfv ($env.HOME)/.config/waybar
 rm -rfv ($env.HOME)/.config/wezterm
@@ -8,6 +10,7 @@ rm -rfv ($env.HOME)/.config/starship.toml
 rm -fv ($env.HOME)/.config/.ignore
 rm -rfv ($env.HOME)/.config/fuzzel
 rm -rfv ($env.HOME)/.config/uwsm
+rm -rfv "($env.HOME)/.zen/$zen_profile.Default (release)"
 
 ln -s ($env.PWD)/nvim ($env.HOME)/.config/nvim
 ln -s ($env.PWD)/waybar ($env.HOME)/.config/waybar
@@ -19,3 +22,4 @@ ln -s ($env.PWD)/starship/starship.toml ($env.HOME)/.config/starship.toml
 ln -s ($env.PWD)/.ignore ($env.HOME)/.config/.ignore
 ln -s ($env.PWD)/fuzzel ($env.HOME)/.config/fuzzel
 ln -s ($env.PWD)/uwsm ($env.HOME)/.config/uwsm
+ln -s ($env.PWD)/zen-profile "($env.HOME)/.zen/$zen_profile.Default (release)"
