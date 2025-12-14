@@ -1,4 +1,4 @@
-zen_profile=
+zen_profile=taqdi3qq
 
 rm -rfv $HOME/.config/nvim
 rm -rfv $HOME/.config/waybar

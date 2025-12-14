@@ -32,3 +32,5 @@ do --env {
     load-env $ssh_agent_env
     $ssh_agent_env | save --force $ssh_agent_file
 }
+let mise_path = $nu.default-config-dir | path join mise.nu
+^mise activate nu | str replace "export-env {" "" | prepend "export-env {" | save $mise_path --force

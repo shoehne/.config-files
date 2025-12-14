@@ -20,7 +20,7 @@ return {
         'markdown',
         'markdown_inline',
         'sql',
-        'supercollider',
+        -- 'supercollider',
         'toml',
         'vim',
         'xml',
