@@ -11,8 +11,7 @@
     "bluetooth",
     "network",
     "pulseaudio",
-    "cpu",
-    "battery"
+    "cpu"
   ],
   "hyprland/workspaces": {
     "on-click": "activate",
@@ -26,14 +25,16 @@
       "5": "5",
       "6": "6",
       "7": "7",
-      "8": "8",
-      "9": "9",
+      "8": "󱡶: Second Screen",
+      "9": "\uf26c: TV",
       "active": "󱓻"
     },
     "persistent-workspaces": {
       "1": [],
       "2": [],
-      "3": []
+      "3": [],
+      "8": [],
+      "9": []
     }
   },
   "custom/omarchy": {
@@ -44,16 +45,13 @@
   },
   "custom/updates": {
     "format": "{icon}: {}",
-    "format-icons": {
-      "has-updates": ""
-    },
-    "return-type": "json",
-    "exec-if": "which waybar-module-pacman-updates",
-    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300 --no-zero-output",
-    "on-click": "eos-update --aur",
-    "tooltip-format": "Updates available"
+    "format": "",
+    "exec": "omarchy-update-available",
+    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
+    "tooltip-format": "Omarchy update available",
+    "signal": 7,
+    "interval": 21600
   },
-
   "cpu": {
     "interval": 5,
     "format": "󰍛",
@@ -76,26 +74,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
-    "on-click": "wezterm --config-file ~/.config/hypr/terminal.lua -e gazelle"
-  },
-  "battery": {
-    "format": "{capacity}% {icon}",
-    "format-discharging": "{icon}",
-    "format-charging": "{icon}",
-    "format-plugged": "",
-    "format-icons": {
-      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
-      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-    },
-    "format-full": "󰂅",
-    "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
-    "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
-    "interval": 5,
-    "on-click": "omarchy-menu power",
-    "states": {
-      "warning": 20,
-      "critical": 10
-    }
+    "on-click": "omarchy-launch-wifi"
   },
   "bluetooth": {
     "format": "",
@@ -106,13 +85,11 @@
   },
   "wireplumber": {
     "format": "{volume}% {icon} {format-source}",
-    "format-muted": "",
+    "format-muted": "",
     "format-source": "{source_volume}%",
     "format-source-muted": "",
     "on-click": "",
-    "format-icons": {
-      "default": ["", "", ""]
-    }
+    "format-icons": ["", "", ""]
   },
   "group/tray-expander": {
     "orientation": "inherit",

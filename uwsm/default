@@ -1,2 +1,0 @@
-export TERMINAL=xdg-terminal-exec
-export EDITOR=nvim 
