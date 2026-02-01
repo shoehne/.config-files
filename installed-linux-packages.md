@@ -1,7 +1,7 @@
 # Packages
 ## Official
 - bitwarden
-- bluedevil
+- bluetui
 - bluez
 - cmake
 - discord
@@ -20,6 +20,7 @@
 - hyprutils
 - kitty
 - lf
+- lsp-plugins-ladspa
 - lutris
 - mako
 - neovim
@@ -29,6 +30,8 @@
 - pipewire-jack
 - pipewire-pulse
 - pipewire-session-manager
+- plymouth
+- ssh-audit
 - steam
 - starship
 - tree-sitter-cli

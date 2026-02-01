@@ -10,9 +10,15 @@
     "group/tray-expander",
     "bluetooth",
     "network",
-    "pulseaudio",
+    "custom/volume",
     "cpu"
   ],
+  "custom/omarchy": {
+    "format": "<span font='omarchy'>\ue900</span>",
+    "on-click": "omarchy-menu",
+    "on-click-right": "xdg-terminal-exec",
+    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
+  },
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
@@ -37,59 +43,28 @@
       "9": []
     }
   },
-  "custom/omarchy": {
-    "format": "<span font='omarchy'>\ue900</span>",
-    "on-click": "omarchy-menu",
-    "on-click-right": "xdg-terminal-exec",
-    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
-  },
-  "custom/updates": {
-    "format": "{icon}: {}",
-    "format": "",
-    "exec": "omarchy-update-available",
-    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
-    "tooltip-format": "Omarchy update available",
-    "signal": 7,
-    "interval": 21600
-  },
-  "cpu": {
-    "interval": 5,
-    "format": "󰍛",
-    "on-click": "xdg-terminal-exec btop"
-  },
   "clock": {
     "format": "{:L%A %d/%m/%Y %I:%M %p}",
     "format-alt": "{:L%d %B W%V %Y}",
     "tooltip": false,
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
   },
-  "network": {
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-    "format": "{icon}",
-    "format-wifi": "{icon}",
-    "format-ethernet": "󰀂",
-    "format-disconnected": "󰤮",
-    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-    "tooltip-format-disconnected": "Disconnected",
-    "interval": 3,
-    "spacing": 1,
-    "on-click": "omarchy-launch-wifi"
+  "custom/updates": {
+    "format": "{icon}: {0}",
+    "format-icons": {
+      "has-updates": "",
+      "updated": "󰂪"
+    },
+    "return-type": "json",
+    "exec-if": "which waybar-module-pacman-updates",
+    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300 --tooltip-align-columns",
+    "on-click": "wezterm --config-file ~/.config/hypr/terminal.lua -e eos-update --aur"
   },
-  "bluetooth": {
-    "format": "",
-    "format-disabled": "󰂲",
-    "format-connected": "",
-    "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "omarchy-launch-bluetooth"
-  },
-  "wireplumber": {
-    "format": "{volume}% {icon} {format-source}",
-    "format-muted": "",
-    "format-source": "{source_volume}%",
-    "format-source-muted": "",
-    "on-click": "",
-    "format-icons": ["", "", ""]
+  "custom/screenrecording-indicator": {
+    "on-click": "omarchy-cmd-screenrecord",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
+    "signal": 8,
+    "return-type": "json"
   },
   "group/tray-expander": {
     "orientation": "inherit",
@@ -103,14 +78,56 @@
     "format": "",
     "tooltip": false
   },
-  "custom/screenrecording-indicator": {
-    "on-click": "omarchy-cmd-screenrecord",
-    "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
-    "signal": 8,
-    "return-type": "json"
-  },
   "tray": {
     "icon-size": 12,
     "spacing": 17
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "wezterm --config-file ~/.config/hypr/terminal.lua -e bluetui"
+  },
+  "network": {
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "spacing": 1,
+    "on-click": "wezterm --config-file ~/.config/hypr/terminal.lua -e gazelle"
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "󰍛",
+    "on-click": "wezterm --config-file ~/.config/hypr/terminal.lua -e btop"
+  },
+  "custom/volume": {
+    "format": "{percentage}% ",
+    "return-type": "json",
+    "exec": "~/.config/hypr/scripts/set-pw-volume get-json",
+    "signal": 8, // This matches the 'pkill -RTMIN+8' in the script
+    "on-scroll-up": "~/.config/hypr/scripts/set-pw-volume up",
+    "on-scroll-down": "~/.config/hypr/scripts/set-pw-volume down",
+    "interval": "once",
+    "on-click": "pavucontrol"
+  },
+  "wireplumber": {
+    "format": "{volume}% {icon} {format-source}",
+    "format-muted": "",
+    "format-source": "{source_volume}%",
+    "format-source-muted": "",
+    "on-click": "pavucontrol",
+    "format-icons": [
+      "", 
+      "", 
+      ""
+    ],
+    "node_name": "master_sink_input"
   }
 }

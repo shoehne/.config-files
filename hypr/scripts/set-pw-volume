@@ -1,0 +1,41 @@
+#!/bin/bash
+
+NODE_NAME="master_sink_input"
+STEP=1.5
+MIN_DB=-60.0
+MAX_DB=0.0
+
+# Get Node ID
+NODE_ID=$(pw-dump | jq -r --arg NAME "$NODE_NAME" '.[] | select(.info.props["node.name"] == $NAME) | .id')
+
+if [[ -z "$NODE_ID" || "$NODE_ID" == "null" ]]; then exit 1; fi
+
+# Get current LADSPA volume
+CURRENT_VOL=$(pw-dump | jq -r --arg ID "$NODE_ID" '.[] | select(.id == ($ID|tonumber)) | .info.params.Props[0].params | index("loudComp:Output volume (dB)") as $i | .[$i+1]')
+
+# Handle scientific notation
+CURRENT_VOL=$(printf "%.2f" "$CURRENT_VOL")
+
+case "$1" in
+    up)
+        NEW_VOL=$(echo "$CURRENT_VOL + $STEP" | bc -l)
+        if (( $(echo "$NEW_VOL > $MAX_DB" | bc -l) )); then NEW_VOL=$MAX_DB; fi
+        # Ensure the Sink itself isn't muted or turned down
+        wpctl set-mute "$NODE_ID" 0
+        wpctl set-volume "$NODE_ID" 1.0
+        ;;
+    down)
+        NEW_VOL=$(echo "$CURRENT_VOL - $STEP" | bc -l)
+        if (( $(echo "$NEW_VOL < $MIN_DB" | bc -l) )); then NEW_VOL=$MIN_DB; fi
+        ;;
+    get-json)
+        PERCENT=$(echo "scale=0; ($CURRENT_VOL - ($MIN_DB)) * 100 / ($MAX_DB - ($MIN_DB))" | bc -l)
+        if (( PERCENT < 0 )); then PERCENT=0; fi
+        echo "{\"text\": \"${PERCENT}%\", \"percentage\": ${PERCENT}}"
+        exit 0
+        ;;
+esac
+
+# Apply the LADSPA change
+pw-cli set-param "$NODE_ID" Props "{ params = [ \"loudComp:Output volume (dB)\" $NEW_VOL ] }"
+pkill -RTMIN+8 waybar

@@ -1,0 +1,31 @@
+# --- THE "FIX EVERYTHING" ARCH/VPN PROFILE ---
+
+# 1. Full Identity & Path Access (Fixes Update Failed)
+ignore private-bin
+ignore private-etc
+ignore private-dev
+ignore nosound
+ignore protocol
+ignore net
+
+# 2. DNS & VPN Routing
+noblacklist /etc/resolv.conf
+noblacklist /run/systemd/resolve
+noblacklist /etc/nsswitch.conf
+
+# 3. DBus & Wayland (Fixes Starting Hang)
+ignore dbus-user none
+ignore dbus-system none
+seccomp !chroot
+noblacklist /dev/dri
+noblacklist /dev/shm
+
+# 4. Write Access for Updates
+noblacklist ${HOME}/.config/discord
+whitelist ${HOME}/.config/discord
+writable-var
+writable-run-user
+
+# 5. User Identity
+noblacklist /etc/passwd
+noblacklist /etc/group

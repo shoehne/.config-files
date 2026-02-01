@@ -43,21 +43,21 @@
     "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
   },
   "custom/updates": {
-    "format": "{icon}: {}",
+    "format": "{icon}: {0}",
     "format-icons": {
-      "has-updates": ""
+      "has-updates": "",
+      "updated": "󰂪"
     },
     "return-type": "json",
     "exec-if": "which waybar-module-pacman-updates",
-    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300 --no-zero-output",
-    "on-click": "eos-update --aur",
+    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300",
+    "on-click": "wezterm --config-file ~/.config/hypr/terminal.lua -e eos-update --aur",
     "tooltip-format": "Updates available"
   },
-
   "cpu": {
     "interval": 5,
     "format": "󰍛",
-    "on-click": "$TERMINAL btop"
+    "on-click": "wezterm --config-file ~/.config/hypr/terminal.lua -e btop"
   },
   "clock": {
     "format": "{:L%A %d/%m/%Y %I:%M %p}",
@@ -102,7 +102,7 @@
     "format-disabled": "󰂲",
     "format-connected": "",
     "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "omarchy-launch-bluetooth"
+    "on-click": "wezterm --config-file ~/.config/hypr/terminal.lua -e bluetui"
   },
   "wireplumber": {
     "format": "{volume}% {icon} {format-source}",

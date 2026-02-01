@@ -43,17 +43,16 @@
     "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
   },
   "custom/updates": {
-    "format": "{icon}: {}",
+    "format": "{icon}: {0}",
     "format-icons": {
-      "has-updates": ""
+      "has-updates": "",
+      "updated": "󰂪"
     },
     "return-type": "json",
     "exec-if": "which waybar-module-pacman-updates",
-    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300 --no-zero-output",
-    "on-click": "eos-update --aur",
-    "tooltip-format": "Updates available"
+    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300",
+    "on-click": "wezterm --config-file ~/.config/hypr/terminal.lua -e eos-update --aur"
   },
-
   "cpu": {
     "interval": 5,
     "format": "󰍛",

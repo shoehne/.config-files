@@ -1,0 +1,14 @@
+<!DOCTYPE patchbay>
+<patchbay name="shoehne-desktop" version="0.9.8">
+ <items>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Master Sink Output" port="Master Sink Output:output_FL"/>
+   <input node="Navi 31 HDMI/DP Audio Digital Stereo (HDMI)" port="X34 V3:playback_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Master Sink Output" port="Master Sink Output:output_FR"/>
+   <input node="Navi 31 HDMI/DP Audio Digital Stereo (HDMI)" port="X34 V3:playback_FR"/>
+  </item>
+ </items>
+</patchbay>
+
