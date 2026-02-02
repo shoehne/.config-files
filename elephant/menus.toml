@@ -1,0 +1,23 @@
+name = "bookmarks"
+name_pretty = "Bookmarks"
+icon = "bookmark"
+action = "xdg-open %VALUE%"
+
+[[entries]]
+text = "Walker"
+value = "https://github.com/abenz1267/walker"
+
+[[entries]]
+text = "Elephant"
+value = "https://github.com/abenz1267/elephant"
+
+name = "docker"
+name_pretty = "Docker Management"
+icon = "Docker"
+
+[[entries]]
+text = "Lazydocker"
+keywords = [
+  "lazydocker",
+  "docker"]
+action = "wezterm --config-file ~/.config/hypr/terminal.lua -e lazydocker"
