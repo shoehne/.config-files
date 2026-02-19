@@ -1,7 +1,7 @@
 return {
   {
     'willothy/wezterm.nvim',
-    enabled = true,
+    enabled = false,
     config = true,
   },
 }

@@ -29,6 +29,7 @@ vim.o.termguicolors = true
 vim.o.scrolloff = 10
 vim.o.signcolumn = "yes"
 -- vim.o.isfname:append("@-@")
+vim.g.omni_sql_no_default_maps = 1
 
 vim.o.textwidth = 80
 
