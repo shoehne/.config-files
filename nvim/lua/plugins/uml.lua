@@ -4,7 +4,7 @@ return {
     dependencies = {
       'javiorfo/nvim-nyctophilia',
     },
-    enabled = true,
+    enabled = false,
     ft = {
       'plantuml',
     },
@@ -13,5 +13,14 @@ return {
         format = 'svg',
       },
     },
+  },
+  {
+    'Maduki-tech/nvim-plantuml',
+    dependencies = {},
+    enabled = false,
+    ft = {
+      'plantuml',
+    },
+    opts = {},
   }
 }
