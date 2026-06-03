@@ -40,3 +40,8 @@ hl.bind(main_mod .. " + Escape",
     release = true,
     description = "Shutdown options"
   })
+hl.bind(main_mod .. " + L",
+  hl.dsp.exec_cmd("hyprlock"),
+  {
+    description = "Lock screen"
+  })
