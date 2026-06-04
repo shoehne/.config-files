@@ -17,12 +17,12 @@
 -- source = ~/.config/hypr/$host_name.monitors.conf
 require("autostart")
 require("bindings")
--- require("bindings/media")
+require("bindings/media")
 -- require("bindings/clipboard")
 require("bindings/tiling-v2")
--- require("bindings/utilities")
+require("bindings/utilities")
 -- require("bindings/screencapture")
--- require("input")
+require("input")
 -- require("windows")
 
 local function get_hostname()
