@@ -79,16 +79,18 @@ end
 
 -- Neogit
 keymap('n',
-  '<M-F1>',
+  '<leader>ng',
   ':Neogit kind=floating<CR>',
   {
-   desc = 'Open Neogit as a floating window'
+   desc = 'Open Neogit as a floating window',
+   noremap = true
   })
 keymap('n',
-  '<M-F2>',
+  '<leader>ngc',
   ':Neogit cwd=%:p:h kind=floating<CR>',
   {
-    desc = 'Open Neogit in the repo of the current file'
+    desc = 'Open Neogit in the repo of the current file',
+    noremap = true
   })
 
 -- File explorer
