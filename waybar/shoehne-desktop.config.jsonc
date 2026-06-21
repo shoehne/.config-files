@@ -31,6 +31,7 @@
       "5": "5",
       "6": "6",
       "7": "7",
+      "0": "0",
       "8": "󱡶: Second Screen",
       "9": "\uf26c: TV",
       "active": "󱓻"
@@ -115,7 +116,7 @@
     "on-scroll-up": "~/.config/hypr/scripts/set-pw-volume up",
     "on-scroll-down": "~/.config/hypr/scripts/set-pw-volume down",
     "interval": "once",
-    "on-click": "pavucontrol"
+    "on-click": "pwvucontrol"
   },
   "wireplumber": {
     "format": "{volume}% {icon} {format-source}",
