@@ -16,7 +16,10 @@ function module.keymaps (config)
 			{
 				key = 'n',
 				mods = 'CTRL',
-				action = act.SpawnTab 'CurrentPaneDomain'
+				action = act.SpawnCommandInNewTab {
+          cwd = wezterm.home_dir,
+          domain = 'DefaultDomain',
+        }
 			},
 			{
 				key = 'LeftArrow',
@@ -61,12 +64,18 @@ function module.keymaps (config)
 			{
 				key = 'D',
 				mods = ' CTRL|SHIFT',
-				action = act.SplitHorizontal { domain = "CurrentPaneDomain" }
+				action = act.SplitHorizontal { 
+          domain = "CurrentPaneDomain",
+          cwd = wezterm.home_dir,
+        }
 			},
 			{
 				key = 'F',
 				mods = 'CTRL|SHIFT',
-				action = act.SplitVertical { domain = "CurrentPaneDomain" }
+				action = act.SplitVertical { 
+          domain = "CurrentPaneDomain",
+          cwd = wezterm.home_dir,
+        }
 			},
 			{
 				key = 'LeftArrow',
@@ -121,7 +130,10 @@ function module.keymaps (config)
 			{
 				key = 'N',
 				mods = 'CTRL|SHIFT',
-				action = act.SpawnWindow
+				action = act.SpawnCommandInNewWindow {
+          cwd = wezterm.home_dir,
+          domain = 'DefaultDomain',
+        }
 			},
 			{
 				key = 'U',

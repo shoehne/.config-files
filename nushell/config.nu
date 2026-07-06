@@ -7,3 +7,5 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 
 mkdir ($nu.data-dir | path join "vendor/autoload")
 ^mise activate nu | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
+
+$env.config.show_banner = false
